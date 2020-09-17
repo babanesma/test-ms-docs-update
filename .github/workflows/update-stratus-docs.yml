@@ -1,0 +1,29 @@
+name: Update Stratus Docs
+on:
+  push:
+    paths:
+      - 'README.md'
+    branches:
+      - 'master'
+jobs:
+  updateAuthors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
+          repository: pfizer/stratus-docs-ms
+          fetch-depth: 0
+
+      - name: get new README changes
+        run: |
+          cat README.md > site/content/en/docs/Microservices/test-ms.md
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PAT }}
+          commit-message: update stratus docs
+          title: Update Docs
+          body: update stratus docs with new changes in README.md
+          branch: update-docs

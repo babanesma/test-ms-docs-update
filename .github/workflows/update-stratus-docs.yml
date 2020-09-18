@@ -17,6 +17,7 @@ jobs:
 
       - name: get new README changes
         run: |
+          cat README.md
           cat README.md > docs/microservices/test-ms.md
 
       - name: Create Pull Request

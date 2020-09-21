@@ -34,11 +34,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: readme
-
-      - shell: bash
-        run: |
-          cat README.md > docs/microservices/test-ms.md
-          rm README.md
+          path: docs/microservices/test-ms.md
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3

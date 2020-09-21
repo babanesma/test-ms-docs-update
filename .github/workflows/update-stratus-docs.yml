@@ -5,7 +5,21 @@ on:
       - 'README.md'
     branches:
       - 'master'
+
 jobs:
+  saveReadmeFile:
+    runs-on: ubuntu-latest
+    steps:
+      - use : actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: upload readme file to artifacts
+          uses: actions/upload-artifact@v2
+          with:
+            name: readme
+            path: README.md
+
   updateReadmeOnStratus:
     runs-on: ubuntu-latest
     steps:
@@ -15,10 +29,14 @@ jobs:
           repository: babanesma/test-docs
           fetch-depth: 0
 
-      - name: get new README changes
+      - name: download updated readme
+          uses: actions/download-artifact@v2
+          with:
+            name: readme
+
+      - shell: bash
         run: |
-          cat README.md
-          cat README.md > docs/microservices/test-ms.md
+          cat readme.md > docs/microservices/test-ms.md
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3

@@ -15,10 +15,10 @@ jobs:
           fetch-depth: 0
 
       - name: upload readme file to artifacts
-          uses: actions/upload-artifact@v2
-          with:
-            name: readme
-            path: README.md
+        uses: actions/upload-artifact@v2
+        with:
+          name: readme
+          path: README.md
 
   updateReadmeOnStratus:
     runs-on: ubuntu-latest
@@ -30,9 +30,9 @@ jobs:
           fetch-depth: 0
 
       - name: download updated readme
-          uses: actions/download-artifact@v2
-          with:
-            name: readme
+        uses: actions/download-artifact@v2
+        with:
+          name: readme
 
       - shell: bash
         run: |

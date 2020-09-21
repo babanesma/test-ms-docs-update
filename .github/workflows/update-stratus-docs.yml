@@ -37,7 +37,7 @@ jobs:
 
       - shell: bash
         run: |
-          cat readme.md > docs/microservices/test-ms.md
+          cat README.md > docs/microservices/test-ms.md
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3

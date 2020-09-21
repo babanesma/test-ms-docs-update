@@ -14,19 +14,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - shell: bash
-        run: |
-          cat README.md
-          cat README.md > updated_readme.md
-
       - name: upload readme file to artifacts
         uses: actions/upload-artifact@v2
         with:
           name: readme
-          path: updated_readme.md
+          path: README.md
 
   updateReadmeOnStratus:
     runs-on: ubuntu-latest
+    needs: saveReadmeFile
     steps:
       - uses: actions/checkout@v2
         with:

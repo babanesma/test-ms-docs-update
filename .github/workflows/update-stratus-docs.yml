@@ -20,7 +20,7 @@ jobs:
           python-version: '3.7'
       
       - name: Add Hugo headers to md files
-        run: scripts/convert-docs-to-hugo.py
+        run: python scripts/convert-docs-to-hugo.py
 
       - name: upload readme file to artifacts
         uses: actions/upload-artifact@v2

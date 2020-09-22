@@ -1,0 +1,20 @@
+{
+    "pages": [
+        {
+            "path": "docs/api.md",
+            "title": "API",
+            "linkTitle": "API Documentation",
+            "date": "11-22-2019",
+            "weight": 1,
+            "description": "API Documentation Description"
+        },
+        {
+            "path": "README.md",
+            "title": "Index",
+            "linkTitle": "Index",
+            "date": "11-22-2019",
+            "weight": 1,
+            "description": "Index Description"
+        }
+    ]
+}
